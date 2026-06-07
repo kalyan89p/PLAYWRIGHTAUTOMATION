@@ -1,0 +1,82 @@
+
+
+absolute xpath : /html/body/div/form/input
+relative: anything relatively identifies. 
+xpath syntax: //tagname[@attribute='value']
+contains syntax : //tagname[contains(@attribute,'value')]
+starts-with syntax : //tagname[starts-with(@attribute,'value')]
+ends-with syntax : //tagname[ends-with(@attribute,'value')]
+text() syntax : //tagname[text()='value']  
+indexing syntax : (//tagname[@attribute='value'])[index]
+contains id syntax : //tagname[contains(@id,'value')]  
+contains class syntax : //tagname[contains(@class,'value')]
+contains text syntax : //tagname[contains(text(),'value')]
+following-sibling syntax : //tagname[@attribute='value']/following-sibling::tagname
+preceding-sibling syntax : //tagname[@attribute='value']/preceding-sibling::tagname
+parent syntax : //tagname[@attribute='value']/parent::tagname
+ancestor syntax : //tagname[@attribute='value']/ancestor::tagname
+descendant syntax : //tagname[@attribute='value']/descendant::tagname
+all elements syntax : //tagname
+wildcard syntax : //*[@attribute='value']
+logical operators syntax : //tagname[@attribute='value1' and @attribute='value2']
+or syntax : //tagname[@attribute='value1' or @attribute='value2']   
+all text syntax : //tagname[.='value']
+all wildcard syntax : //*[@*='value'] or //@*
+label syntax : //label[text()='value']/following-sibling::input
+preceding syntax : //tagname[@attribute='value']/preceding::tagname
+following syntax : //tagname[@attribute='value']/following::tagname 
+operator precedence : and > or
+example : //input[@type='text' and @name='username'] or //input[@type='password' and @name='password']  
+another example : //div[@class='container']//input[@type='text']
+not syntax : //tagname[not(@attribute='value')]
+! syntax : //tagname[!@attribute='value']
+position syntax : //tagname[position()=index]
+last syntax : //tagname[last()]
+count syntax : count(//tagname[@attribute='value'])
+name syntax : //tagname[@name='value']
+string length syntax : string-length(//tagname[@attribute='value'])
+normalize-space syntax : normalize-space(//tagname[@attribute='value'])
+translate syntax : translate(//tagname[@attribute='value'], 'abc', 'xyz')
+//button[@type='submit' and (text()='Submit' or text()='Send')]
+by placeholder : //input[@placeholder='value']
+dynamic id : //tagname[starts-with(@id,'value')]
+table row : //table[@id='value']/tbody/tr
+table cell : //table[@id='value']/tbody/tr/td
+table header : //table[@id='value']/thead/tr/th 
+checkbox near label : //label[text()='value']/preceding-sibling::input[@type='checkbox']
+same row : //label[text()='value']/ancestor::tr//input[@type='text']
+or following : //tagname[@attribute='value']/following::tagname[@attribute='value']
+following-sibling : //tagname[@attribute='value']/following-sibling::tagname[@attribute='value']
+preceding-sibling : //tagname[@attribute='value']/preceding-sibling::tagname[@attribute='value']    
+self : //tagname[@attribute='value']/self::tagname[@attribute='value']
+what is self here? self is used to refer to the current node in the xpath expression. It allows you to apply conditions or functions to the current node itself rather than its children or siblings. For example, //tagname[@attribute='value']/self::tagname[@attribute='value'] would select the current node if it matches the specified conditions.
+
+
+the difference between not and ! is that not is used to negate a condition while ! is used to check if an attribute does not exist.
+the difference between following and following-sibling is that following selects all nodes that come after the current node in the document, while following-sibling selects only the sibling nodes that come after the current node.
+the difference between preceding and preceding-sibling is that preceding selects all nodes that come before the current node in the document, while preceding-sibling selects only the sibling nodes that come before the current node.
+the difference between ancestor and parent is that ancestor selects all nodes that are ancestors of the current node, while parent selects only the immediate parent node of the current node.
+the difference between descendant and child is that descendant selects all nodes that are descendants of the current node, while child selects only the immediate child nodes of the current node.
+the difference between contains and starts-with is that contains checks if the specified value is present anywhere in the attribute, while starts-with checks if the attribute value starts with the specified value.
+the difference between contains and ends-with is that contains checks if the specified value is present anywhere in the attribute, while ends-with checks if the attribute value ends with the specified value.
+the difference between text() and . is that text() selects the text content of an element, while . selects the current node itself.
+the difference between indexing and position() is that indexing is used to select a specific instance of an element based on its position in the document, while position() is a function that returns the position of the current node in the context of its siblings.
+the difference between last() and position() is that last() selects the last instance of an element, while position() returns the position of the current node in the context of its siblings.
+the difference between count() and string-length() is that count() returns the number of nodes that match a specified condition, while string-length() returns the length of a string value.
+the difference between normalize-space() and translate() is that normalize-space() removes leading and trailing whitespace from a string, while translate() replaces characters in a string based on specified mappings.
+the difference between logical operators and and or is that and requires both conditions to be true for the expression to be true, while or requires at least one condition to be true for the expression to be true.   
+the difference between absolute and relative xpath is that absolute xpath starts from the root node and specifies the entire path to the target element, while relative xpath starts from a specific node and specifies the path to the target element relative to that node. Absolute xpath is more brittle and can break if there are changes in the document structure, while relative xpath is more flexible and can adapt to changes in the document structure.    
+the difference between xpath and css selectors is that xpath allows for more complex and flexible queries, including the ability to navigate both up and down the DOM tree, while css selectors are limited to selecting elements based on their attributes and hierarchy. Xpath can also select elements based on their text content, while css selectors cannot. However, css selectors are generally faster and more efficient than xpath selectors. 
+the difference between xpath and selectors is that xpath is a language used to navigate and select elements in an XML or HTML document, while selectors is a module in Playwright that provides a high-level API for selecting elements based on various criteria, including xpath. Selectors can use xpath as one of the strategies for selecting elements, but it also supports other strategies such as css selectors, text selectors, and role selectors. Selectors provides a more convenient and efficient way to select elements compared to writing raw xpath expressions.  
+the difference between ancestor and parent is that ancestor selects all nodes that are ancestors of the current node, while parent selects only the immediate parent node of the current node. Ancestor can select multiple nodes in the hierarchy, while parent will only select one node. For example, if you have a nested structure of divs, ancestor would select all the divs that are above the current node in the hierarchy, while parent would only select the immediate div that is directly above the current node.
+the difference between following and following-sibling is that following selects all nodes that come after the current node in the document, while following-sibling selects only the sibling nodes that come after the current node. Following can select nodes that are not siblings of the current node, while following-sibling will only select nodes that are siblings of the current node. For example, if you have a structure of divs and spans, following would select all the divs and spans that come after the current node, while following-sibling would only select the divs and spans that are siblings of the current node.
+the difference between preceding and preceding-sibling is that preceding selects all nodes that come before the current node in the document, while preceding-sibling selects only the sibling nodes that come before the current node. Preceding can select nodes that are not siblings of the current node, while preceding-sibling will only select nodes that are siblings of the current node. For example, if you have a structure of divs and spans, preceding would select all the divs and spans that come before the current node, while preceding-sibling would only select the divs and spans that are siblings of the current node.    
+the difference between not and ! is that not is used to negate a condition while ! is used to check if an attribute does not exist. Not can be used to negate any condition, while ! is specifically used to check for the absence of an attribute. For example, //tagname[not(@attribute='value ')] would select elements where the attribute does not equal the specified value, while //tagname[!@attribute] would select elements that do not have the specified attribute at all.   
+the difference between contains and starts-with is that contains checks if the specified value is present anywhere in the attribute, while starts-with checks if the attribute value starts with the specified value. Contains can match any part of the attribute value, while starts-with only matches the beginning of the attribute value. For example, //tagname[contains(@attribute,'value')] would select elements where the attribute contains the specified value anywhere, while //tagname[starts-with(@attribute,'value')] would select elements where the attribute starts with the specified value.
+the difference between contains and ends-with is that contains checks if the specified value is present anywhere in the attribute, while ends-with checks if the attribute value ends with the specified value. Contains can match any part of the attribute value, while ends-with only matches the end of the attribute value. For example, //tagname[contains(@attribute,'value')] would select elements where the attribute contains the specified value anywhere, while //tagname[ends-with(@attribute,'value')] would select elements where the attribute ends with the specified value.  
+the difference between text() and . is that text() selects the text content of an element, while . selects the current node itself. Text() is used to retrieve or match the text content of an element, while . is used to refer to the current node in the context of an xpath expression. For example, //tagname[text()='value'] would select elements where the text content equals the specified value, while //tagname[.='value'] would    select elements where the current node's string value equals the specified value. The string value of a node is the concatenation of all its text node descendants.     
+the difference between indexing and position() is that indexing is used to select a specific instance of an element based on its position in the document, while position() is a function that returns the position of the current node in the context of its siblings. Indexing is typically done using square brackets with a specific index number, while position() is used within a predicate to compare against a specific value. For example, (//tagname[@attribute='value'])[index] would select the element at the specified index among those that match the condition, while //tagname[@attribute='value'][position()=index] would select the element at the specified position among those that match the condition.
+the difference between last() and position() is that last() selects the last instance of an element, while position() returns the position of the current node in the context of its siblings. Last() is used to select the last element in a set of nodes, while position() is used to determine the position of a specific node within its siblings. For example, //tagname[@attribute='value'][last()] would select the last element that matches the condition, while //tagname[@attribute='value'][position()=index] would select the element at the specified position among those that match the condition.  
+the difference between count() and string-length() is that count() returns the number of nodes that match a specified condition, while string-length() returns the length of a string value. Count() is used to determine how many elements match a certain criteria, while string-length() is used to determine the number of characters in a string. For example, count(//tagname[@attribute='value']) would return the number of elements that match the condition, while string-length(//tagname[@attribute='value']) would return the length of the string value of the first element that matches the condition.  
+the difference between normalize-space() and translate() is that normalize-space() removes leading and trailing whitespace from a string, while translate() replaces characters in a string based on specified mappings. Normalize-space() is used to clean up the text content of an element by removing extra spaces, while translate() is used to perform character substitutions in a string. For example, normalize-space(//tagname[@attribute='value']) would return the text content of the first element that matches the condition with leading and trailing whitespace removed, while translate(//tagname[@attribute='value'], 'abc', 'xyz') would replace all occurrences of 'a' with 'x', 'b' with 'y', and 'c' with 'z' in the string value of the first element that matches the condition.
+the difference between logical operators and and or is that and requires both conditions to be true for the expression to be true, while or requires at least one condition to be true for the expression to be true. And is used when you want to ensure that multiple conditions are met, while or is used when you want to allow for multiple possibilities. For example, //tagname[@attribute='value1' and @attribute='value2'] would select elements where both conditions are true, while //tagname[@attribute='value1' or @attribute='value2'] would select elements where at least one of the conditions is true.
