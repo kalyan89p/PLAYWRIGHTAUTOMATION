@@ -1,0 +1,131 @@
+Table of Contents  
+
+1. Section 1: Introduction to Playwright  
+2. Section 2: TypeScript  
+3. Section 3: Playwright Core Concepts  
+4. Section 4: Playwright Advanced Features  
+5. Section 5: Page Object Model 6. Section  
+6: Test Runner / Reporter  
+7. Section 7: API Testing Fundamentals  
+8. Module 8: Framework Development  
+9. Module 9: CI/CD Integration 
+
+
+SECTION 1: Introduction to Playwright 
+• What is Playwright 
+• Why Playwright vs Selenium 
+• Supported languages (JS/TS, Java, Python, .NET) 
+• Architecture of Playwright 
+• Setting up Playwright on Windows & Mac 
+• Running your first test     
+• Selectors/Locators 
+•  Different ways to locate a DOM element (by title, by label, by role etc) 
+• Synchronization/Auto waiting  
+• Learning assertion using expect library 
+
+
+SECTION 2: TypeScript  
+• What is TypeScript? 
+• TS vs JavaScript 
+• Variables, String, Object 
+• Data type, Let, var, Const 
+• Operator 
+• Conditional statement 
+• Loops 
+• Function 
+• Arrow function 
+• Array 
+• Call back 
+• OOPS concepts 
+• Functions with type annotations  
+•  Enums in Type  
+• Type assertion  
+• Array type annotations 
+• Classes in TS   
+• Constructor  
+• Access modifiers  
+•  Practical implementation in Playwright test script (Inheritance, 
+Polymorphism etc) 
+
+
+SECTION 3: Playwright Core Concepts 
+• Code gen (Record & Playback Tools) 
+• Browsers, Contexts, Pages 
+• Locators (CSS, regex, Role-based) 
+• Waiting mechanism (Auto-waiting) 
+• Page interactions. 
+• iFrames & Shadow DOM 
+• File uploads & downloads 
+• Screenshots, Video, Trace viewer 
+• Keyboard/mouse actions (Click, Right click, context click, Mouse Hover, 
+drag and drop) 
+• Multiple Tabs/ Windows 
+
+
+SECTION 4: Playwright Advanced Features 
+• Test Hooks (before Each/after Each) 
+• Test annotations (skip, fixme, slow, tag)      
+• Parallel execution 
+• Fixtures (built-in & custom) 
+• Network mocking & request interception 
+• API + UI hybrid tests 
+• Visual testing 
+SECTION 5: Page Object Model (POM) 
+• Why POM 
+• TS classes for pages 
+• Base Page pattern 
+• Reusable components 
+• Environment configuration 
+• Data-driven testing (CSV, JSON, Excel) 
+
+
+SECTION 6: Playwright Test Runner/Reporter  
+• Role of test runner 
+• Grouping, Filtering, Skipping  
+• Only keyword  
+• Test level configuration, Test Retry  
+• Overriding config at test level  
+• Overriding config at project level  
+• Test Parameterization  
+• Test Suite  
+• Test Steps  
+• Cross browser testing  
+• Different type of reports  
+• Global Setup / Tear down 
+
+
+SECTION 7: API Testing Fundamentals 
+• What is API Testing 
+• REST vs SOAP 
+• HTTP Protocol & Methods 
+• (GET, POST, PUT, PATCH, DELETE) 
+• request.get() 
+• request.post() 
+• request.put() 
+• request.delete() 
+•  Status codes 
+•  Request & Response Structure 
+•  JSON, XML, Headers, Cookies 
+• API Request context  
+• Assertions for API responses 
+• Handling API requests using PW  
+• Handling API responses using PW  
+• Network interception 
+
+
+Module 8: Framework Development 
+(Playwright + TypeScript + API) 
+• Scalable folder structure 
+• Config for multiple environments 
+• Custom reporters 
+• Logging 
+• Retry strategies 
+• Error handling 
+• Cross-browser execution 
+
+
+Module 9: CI/CD Integration 
+• Git & GitHub basics 
+• Azure DevOps pipeline 
+• Playwright Docker execution 
+• Parallel execution in CI 

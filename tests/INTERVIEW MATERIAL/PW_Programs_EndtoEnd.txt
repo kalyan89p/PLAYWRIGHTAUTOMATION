@@ -1,0 +1,813 @@
+URL Launch:
+
+import { expect, test } from '@playwright/test';
+test('URL Launch', async ({ page }) => {
+await page.goto('https://automationintesting.com/selenium/testpage/?');
+});
+-------------------------------------------------------------------------------------------------
+Launch URL and Fill the Details:
+
+import { expect, test } from '@playwright/test';
+test('Launch URL and Fill the Details', async ({ page }) => {
+await page.goto('https://www.saucedemo.com/')
+await page.fill('#user-name', 'standard_user');
+await page.fill('#password', 'secret_sauce');
+await page.click('#login-button');
+expect(page.locator('.app_logo')) .toHaveText('Swag Labs');
+expect(page.locator('.title')) .toHaveText('Products');
+await page.selectOption ('.product_sort_container', {value: 'lohi'});
+});
+-------------------------------------------------------------------------------------------------
+Launch URL and Fill the Details1:
+
+import { expect, test } from '@playwright/test';
+test('Launch URL and Fill the Details1', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/')
+await page.fill('#name','sumanth sharma');
+await page.fill('#email','sumanth.sharma1999@gmail.com');
+await page.fill('#phone','7032832939');
+await page.fill('#textarea','6-104/9');
+await page.click('#male');
+await page.check('#sunday');
+await page.selectOption('#country','india');
+await page.selectOption('#colors','red');
+await page.selectOption('#animals','cat');
+});
+-------------------------------------------------------------------------------------------------
+Date Picker:
+
+import { expect, test } from '@playwright/test';
+test('Date Picker', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/')
+await page.fill('#name','sumanth sharma');
+await page.fill('#email','sumanth.sharma1999@gmail.com');
+await page.fill('#phone','7032832939');
+await page.fill('#textarea','6-104/9');
+await page.click('#male');
+await page.check('#sunday');
+await page.selectOption('#country','india');
+await page.selectOption('#colors','red');
+await page.selectOption('#animals','cat');
+await page.click('#txtDate');
+await page.selectOption('.ui-datepicker-month', 'Jan');
+await page.selectOption('.ui-datepicker-year', '2025');
+await page.click('//a[text()="24"]');
+await page.waitForTimeout(3000);
+});
+-------------------------------------------------------------------------------------------------
+Hover:
+
+import { expect, test } from '@playwright/test';
+test('Hover', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/')
+await page.fill('#name','sumanth sharma');
+await page.fill('#email','sumanth.sharma1999@gmail.com');
+await page.fill('#phone','7032832939');
+await page.fill('#textarea','6-104/9');
+await page.click('#male');
+await page.check('#sunday');
+await page.selectOption('#country','india');
+await page.selectOption('#colors','red');
+await page.selectOption('#animals','cat');
+await page.locator("//button[contains(text(),'Point Me')]").hover();
+await page.waitForTimeout(5000);
+await page.click("//a[contains(text(),'Laptops')]");
+});
+-------------------------------------------------------------------------------------------------
+Double Click:
+
+import { expect, test } from '@playwright/test';
+test('Double Click', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/')
+await page.fill('#name','sumanth sharma');
+await page.fill('#email','sumanth.sharma1999@gmail.com');
+await page.fill('#phone','7032832939');
+await page.fill('#textarea','6-104/9');
+await page.click('#male');
+await page.check('#sunday');
+await page.selectOption('#country','india');
+await page.selectOption('#colors','red');
+await page.selectOption('#animals','cat');
+await page.locator("//button[contains(text(),'Copy Text')]").dblclick();
+await page.waitForTimeout(5000);
+});
+-------------------------------------------------------------------------------------------------
+Full Program:
+
+import { expect, test } from '@playwright/test';
+test('Full Program', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/')
+await page.fill('#name','sumanth sharma');
+await page.fill('#email','sumanth.sharma1999@gmail.com');
+await page.fill('#phone','7032832939');
+await page.fill('#textarea','6-104/9');
+await page.click('#male');
+await page.check('#sunday');
+await page.selectOption('#country','india');
+await page.selectOption('#colors','red');
+await page.selectOption('#animals','cat');
+await page.click('#txtDate');
+await page.selectOption('.ui-datepicker-month', 'Jan');
+await page.selectOption('.ui-datepicker-year', '2025');
+await page.click('//a[text()="24"]');
+await page.waitForTimeout(3000);
+await page.locator("//button[contains(text(),'Point Me')]").hover();
+await page.waitForTimeout(5000);
+await page.click("//a[contains(text(),'Laptops')]");
+await page.locator("//button[contains(text(),'Copy Text')]").dblclick();
+await page.waitForTimeout(5000);
+});
+-------------------------------------------------------------------------------------------------
+Launch Amazon, Search Products, Click on 2nd Product:
+
+import { expect, test } from '@playwright/test';
+test('Launch Amazon, Search Products, Click on 2nd Product', async ({ page }) => {
+await page.goto('https://www.amazon.in/')
+await page.waitForTimeout(5000);
+await page.fill('#twotabsearchtextbox:nth-of-type(1)','soaps');
+await page.keyboard.press("Enter");
+await page.locator ("//div[@data-cel-widget='search_result_3']").click();
+await page.waitForTimeout(5000);
+});
+-------------------------------------------------------------------------------------------------
+Screenshot:
+
+import { expect, test } from '@playwright/test';
+test('Screenshot', async ({ page }) => {
+await page.goto('https://playwright.dev/')
+await page.screenshot({path: './Screenshots/playwright.png'});
+const logo = await page.locator("//a[@class='navbar__brand']");
+await logo.screenshot({ path: './Screenshots/playwrightlogo.png'});
+});
+-------------------------------------------------------------------------------------------------
+Frames:
+
+import {test,expect} from '@playwright/test'; 
+test('Frames', async ({ page }) => {
+//Explained by ramana
+await page.goto("https://letcode.in/frame");
+const firstFrame = page.frameLocator("#firstFr");
+await firstFrame.locator('input[name="fname"]').fill("Sandesh");
+await firstFrame.locator('input[name="lname"]').fill("G");
+const totalFrames = await page.frames().length;
+console.log(totalFrames);
+ 
+//hands-on by venky single farmes
+await page.goto('https://demo.automationtesting.in/Frames.html');
+const firstfarmes= page.frameLocator('#singleframe');
+await firstfarmes.locator('//input[@type="text"]').fill('Venky');
+
+//hands-on by venky multiple farmes
+await page.locator('//a[@href="#Multiple"]').click();
+const firstfarmes1= page.frameLocator('//iframe[@src="MultipleFrames.html"]');
+const secondfarmes = firstfarmes.frameLocator('//iframe[@src="SingleFrame.html"]');
+await secondfarmes.locator('//input[@type="text"]').fill('Venky');
+});
+-------------------------------------------------------------------------------------------------
+Drag and Drop:
+
+import { expect, test } from '@playwright/test';
+test.('Drag and Drop', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/');
+const sourcelocator = page.locator ("//div[@id='draggable']")
+const destinationlocator = page.locator ("//div[@id='droppable']")
+await sourcelocator.dragTo (destinationlocator)
+});
+-------------------------------------------------------------------------------------------------
+Automation URL - Arrow Down:
+
+import { expect, test } from '@playwright/test';
+test('Automation URL - Arrow Down', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/');
+await page.locator("//option[@value='deer']").click();
+await page.waitForTimeout(2000);
+await page.keyboard.press('ArrowDown');
+await page.waitForTimeout(2000);
+await page.keyboard.press('ArrowDown'); 
+});
+-------------------------------------------------------------------------------------------------
+Amazon URL - Arrow Down:
+
+import { expect, test } from '@playwright/test';
+test('Amazon URL - Arrow Down', async ({ page }) => {
+await page.goto('https://www.amazon.in/');
+await page.locator("//input[@placeholder= 'Search Amazon.in']");
+await page.fill('#twotabsearchtextbox:nth-of-type(1)','soaps');
+await page.waitForTimeout(2000);
+await page.keyboard.press('ArrowDown');
+await page.waitForTimeout(2000);
+await page.keyboard.press('ArrowDown'); 
+await page.waitForTimeout(2000);
+await page.keyboard.press('Enter');
+await page.waitForTimeout(2000);
+});
+-------------------------------------------------------------------------------------------------
+Multiple window handle Launch Amazon, Search Products, Click on 2nd Product, Add to Cart:
+
+import { expect, test } from '@playwright/test';
+test('Launch Amazon, Search Products, Click on 2nd Product, Add to Cart', async ({ page }) => {
+await page.goto('https://www.amazon.in/')
+await page.waitForTimeout(5000);
+await page.fill('#twotabsearchtextbox:nth-of-type(1)','soaps');
+await page.keyboard.press("Enter");
+const [newPAge] = await Promise.all([
+page.waitForEvent('popup'),
+page.click("//div[@data-cel-widget='search_result_3']"),
+])
+newPAge.click("//input[@id='add-to-cart-button']")
+await newPAge.waitForTimeout(5000)
+});
+-------------------------------------------------------------------------------------------------
+Upload File:
+
+import { expect, test } from '@playwright/test';
+test('Upload File', async ({ page }) => {
+await page.goto('https://www.file.io/');
+const filePath = './Screenshots/playwright.png';
+await page.waitForTimeout(5000);
+await page.locator('.css-zpjtsm.e12cce780').setInputFiles(filePath);
+await page.waitForTimeout(3000);
+await expect(page.locator("span[class='mb-1.5']")).toBeVisible({ timeout: 30000 });
+});
+-------------------------------------------------------------------------------------------------
+Upload File1:
+
+import { expect, test } from '@playwright/test';
+test('Upload File1', async({page})=>{
+await page.goto('https://the-internet.herokuapp.com/upload');
+const filePath = './Screenshots/playwright.png';
+await page.waitForTimeout(5000);
+await page.locator('#file-upload').setInputFiles(filePath);
+await page.waitForTimeout(5000);
+await page.locator('#file-submit').click();
+await page.waitForTimeout(5000);
+await expect(page.locator('#uploaded-files')).toHaveText('playwright.png');  
+});
+-------------------------------------------------------------------------------------------------
+Pop-Up Accept:
+
+import { expect, test } from '@playwright/test';
+test('Pop-Up Accept', async ({ page }) => {
+await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+// Set up dialog listener BEFORE clicking
+page.once('dialog', async dialog => {
+// Capture the text
+let alertText = dialog.message(); 
+console.log('Alert text captured:', alertText);
+// Verify text
+expect(alertText).toBe('I am a JS Alert');         
+await console.log('Type:', dialog.type);
+await page.waitForTimeout(2000)
+// Accept the dialog      
+await dialog.accept();
+});
+// Now click the button
+await page.click('button[onclick="jsAlert()"]');
+});
+-------------------------------------------------------------------------------------------------
+Pop-Up Dismiss:
+
+import { expect, test } from '@playwright/test';
+test('Pop-Up Dismiss', async ({ page }) => {
+await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+// Set up dialog listener BEFORE clicking
+page.once('dialog', async dialog => {
+// Capture the text
+let alertText = dialog.message(); 
+console.log('Alert text captured:', alertText);
+// Verify text    
+expect(alertText).toBe('I am a JS Confirm');         
+await console.log('Type:', dialog.type);
+await page.waitForTimeout(2000)
+// Dismiss the dialog      
+await dialog.dismiss();
+});
+// Now click the button
+await page.click('button[onclick="jsConfirm()"]');
+});
+-------------------------------------------------------------------------------------------------
+Pop-Up Prompt Accept:
+
+import { expect, test } from '@playwright/test';
+test('Pop-Up Prompt Accept', async ({ page }) => { 
+await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+page.once('dialog', async dialog => {
+let alertText = dialog.message(); 
+console.log('Alert text captured:', alertText);
+expect(alertText).toBe('I am a JS prompt');         
+await console.log('Type:', dialog.type);
+await page.waitForTimeout(3000)
+await dialog.accept('Hello Playwright');
+  });
+await page.click('button[onclick="jsPrompt()"]');
+});
+-------------------------------------------------------------------------------------------------
+Pop-Up Accept1:
+
+import { expect, test } from '@playwright/test';
+test('Pop-Up Accept1', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/');
+// Set up dialog listener BEFORE clicking
+page.once('dialog', async dialog => {
+// Capture the text
+let alertText = dialog.message(); 
+console.log('Alert text captured:', alertText);
+// Verify text 
+expect(alertText).toBe('I am an alert box!');        
+await console.log('Type:', dialog.type);
+await page.waitForTimeout(2000)
+// Accept the dialog      
+await dialog.accept();
+});
+// Now click the button
+await page.click('button[onclick="myFunctionAlert()"]');
+});
+-------------------------------------------------------------------------------------------------
+Pop-Up Dismiss1:
+
+import { expect, test } from '@playwright/test';
+test('Pop-Up Dismiss1', async ({ page }) => {
+await page.goto('https://testautomationpractice.blogspot.com/');
+// Set up dialog listener BEFORE clicking
+page.once('dialog', async dialog => {
+// Capture the text
+let alertText = dialog.message(); 
+console.log('Alert text captured:', alertText);
+// Verify text 
+expect(alertText).toBe('Press a button!');        
+await console.log('Type:', dialog.type);
+await page.waitForTimeout(2000)
+// Dismiss the dialog      
+await dialog.dismiss();
+});
+// Now click the button
+await page.click('button[onclick="myFunctionConfirm()"]');
+});
+-------------------------------------------------------------------------------------------------
+Pop-Up Prompt Accept1:
+
+import { expect, test } from '@playwright/test';
+test('Pop-Up Prompt Accept1', async ({ page }) => { 
+await page.goto('https://testautomationpractice.blogspot.com/');
+page.once('dialog', async dialog => {
+let alertText = dialog.message(); 
+console.log('Alert text captured:', alertText);
+expect(alertText).toBe('Please enter your name:');         
+await console.log('Type:', dialog.type);
+await page.waitForTimeout(3000)
+await dialog.accept('Hello Playwright');
+});
+await page.click('button[onclick="myFunctionPrompt()"]');
+});
+-------------------------------------------------------------------------------------------------
+Wait For Timeout, Wait For Load State, Wait For Selector:
+
+import { expect, test } from '@playwright/test';
+test.('Wait For Timeout, Wait For Load State, Wait For Selector', async ({ page }) => {
+await page.goto('https://books-pwakit.appspot.com/');
+await page.locator('#input').fill('Rich Dad Poor Dad');
+await page.click("div[class='icon']");
+await page.waitForTimeout(3000);
+});
+
+//implicit wait ->> Wait for 3 Seconds
+//await page.waitForTimeout(3000); 
+
+//this will make sure that the page is fully loaded before we proceed with any further actions.
+//await page.waitForLoadState('load');
+//await page.waitForLoadState('networkidle');    
+//await page.waitForLoadState('domcontentloaded');
+ 
+// Explicit wait ->> Wait for the search results to appear for selected xpath
+//await page.waitForSelector('xpath',{
+//state: 'visible',
+//timeout: 5000
+-------------------------------------------------------------------------------------------------
+Jason File:
+
+import {test, expect} from '@playwright/test';
+import bookingsfromjasonfile from '../tests/Jsonfile.json'; //here bookingsfromjasonfile name can be anything it's not inbuilt keyword
+// import iamextrcating from '../tests/Jsonfile.json'; //while giving the file name we have to start with double dots(automtaclity framestructure will display to select)
+test ('jasonfilereading', async({page})=>{
+const fstname = bookingsfromjasonfile.passengers[1].firstName; //under passengers if we have 2 items then we need to call with index value
+const lastname = bookingsfromjasonfile.passengers[0].lastName; //fullname
+const lastnameletter = bookingsfromjasonfile.passengers[0].lastName[1]; //I am printing second letter from lastname
+const airlanetype = bookingsfromjasonfile.flightOffers[0].segments[0].airline;//If there are no multiple itmes then check if the first item showing as '0' then we to call with index
+const crdnum =bookingsfromjasonfile.payment.cardNumber; //here under payment doesn't have multiple itmes and it was not showing any index value, so directly we can call without index
+console.log(fstname);
+console.log(lastname);
+console.log(lastnameletter);
+console.log(airlanetype);
+console.log(crdnum);
+})
+-------------------------------------------------------------------------------------------------
+For Loop Arrow Down Amazon:
+
+import { expect, test } from '@playwright/test';
+test('For Loop Arrow Down Amazon', async ({ page }) => {
+await page.goto('https://www.amazon.in/');
+await page.fill("//input[@id = 'twotabsearchtextbox']", 'shoes');
+await page.waitForTimeout(3000);
+for(let i=0;i<4;i++)
+{
+await page.keyboard.press('ArrowDown');
+await page.waitForTimeout(1000);
+}
+await page.keyboard.press('Enter');
+await page.waitForTimeout(3000);
+await page.locator("//input[@id = 'twotabsearchtextbox']").clear();
+await page.fill("//input[@id = 'twotabsearchtextbox']", 'Bags');
+await page.waitForTimeout(3000);
+for(let i=0;i<4;i++)
+{
+await page.keyboard.press('ArrowDown');
+await page.waitForTimeout(1000);
+}
+await page.keyboard.press('Enter');
+});
+-------------------------------------------------------------------------------------------------
+Amazon For Loop Multiple Products:
+
+import { expect, test } from '@playwright/test';
+test('Amazon For Loop Multiple Products', async ({ page }) => {
+await page.goto('https://www.amazon.in/');
+let items:string[]=['shoes','bags','shirts']
+for(let i=0;i<items.length;i++)
+{
+console.log(items[i])
+await page.fill("//input[@id = 'twotabsearchtextbox']", items[i]);
+await page.waitForTimeout(1000);
+for(let i=0;i<4;i++)
+{
+await page.keyboard.press('ArrowDown');
+await page.waitForTimeout(1000);
+}
+await page.keyboard.press('Enter');
+await page.locator("//input[@id = 'twotabsearchtextbox']").clear();
+}
+});
+-------------------------------------------------------------------------------------------------
+sauce demo For Loop:
+
+import { expect, test } from '@playwright/test';
+test('sauce demo For Loop', async ({ page }) => {
+await page.goto('https://www.saucedemo.com/')
+await page.fill('#user-name','standard_user');
+await page.fill('#password','secret_sauce');
+await page.click('#login-button')
+await page.selectOption('.product_sort_container','hilo')
+await page.waitForTimeout(2000);
+await page.selectOption('.product_sort_container','za')
+await page.waitForTimeout(2000);
+
+const DDvalues = await page.locator("//select[@class='product_sort_container']//option")
+const DDcount = await DDvalues.count()
+for(let i=0; i<DDcount; i++)
+{
+ const textinDD = await DDvalues.nth(i) .innerText(); 
+ const valuesinDD = await DDvalues .nth(i).getAttribute('value');
+ console.log(`Option ${i}: value='${valuesinDD}', text='${textinDD}'`)
+}
+});
+-------------------------------------------------------------------------------------------------
+sauce demo While Loop:
+
+import { expect, test } from '@playwright/test';
+test('sauce demo While Loop', async ({ page }) => {
+await page.goto('https://www.saucedemo.com/')
+await page.fill('#user-name','standard_user');
+await page.fill('#password','secret_sauce');
+await page.click('#login-button')
+await page.selectOption('.product_sort_container','hilo')
+await page.waitForTimeout(2000);
+await page.selectOption('.product_sort_container','za')
+await page.waitForTimeout(2000);
+
+const DDvalues = await page.locator("//select[@class='product_sort_container']//option") //DDvales is variable which stores all the xpath values
+const DDcount = await DDvalues.count() //DDcount is variable which stores total no of dropdown values
+let i=0;
+while(i<DDcount)
+{
+const textinDD = await DDvalues.nth(i) .innerText(); //It will Gets the specific dropdown option with respect to the visible text of that option
+const valuesinDD = await DDvalues .nth(i).getAttribute('value'); //It will Gets the specific dropdown option with respect to the visible value of that option
+console.log(`Option ${i}: value='${valuesinDD}', text='${textinDD}'`)
+i++
+}
+});
+-------------------------------------------------------------------------------------------------
+sauce demo Do While Loop:
+
+import { expect, test } from '@playwright/test';
+test('sauce demo Do While Loop', async ({ page }) => {
+await page.goto('https://www.saucedemo.com/')
+await page.fill('#user-name','standard_user');
+await page.fill('#password','secret_sauce');
+await page.click('#login-button')
+await page.selectOption('.product_sort_container','hilo')
+await page.waitForTimeout(2000);
+await page.selectOption('.product_sort_container','za')
+await page.waitForTimeout(2000);
+
+const DDvalues = await page.locator("//select[@class='product_sort_container']//option") //DDvales is variable which stores all the xpath values
+const DDcount = await DDvalues.count() //DDcount is variable which stores total no of dropdown values
+let i=0;
+do
+{
+const textinDD = await DDvalues.nth(i) .innerText(); //It will Gets the specific dropdown option with respect to the visible text of that option
+const valuesinDD = await DDvalues .nth(i).getAttribute('value'); //It will Gets the specific dropdown option with respect to the visible value of that option
+console.log(`Option ${i}: value='${valuesinDD}', text='${textinDD}'`)
+i++
+}
+while(i<DDcount)
+});
+-------------------------------------------------------------------------------------------------
+flipkart-InnerText:
+
+import { expect, test } from '@playwright/test';
+test('flipkart-InnerText', async({page})=>{
+await page.goto('https://www.flipkart.com/');
+await page.waitForTimeout(3000);
+await page.locator("(//input[@name='q'])[1]").fill('soaps');
+await page.keyboard.press('Enter');
+let result = await page.locator('._Omnvo').innerText();
+console.log(result);
+});
+-------------------------------------------------------------------------------------------------
+flipkart-String&Sub-String:
+
+import { expect, test } from '@playwright/test';
+test('flipkart-String&Sub-String', async({page})=>{
+await page.goto('https://www.flipkart.com/');
+await page.waitForTimeout(3000);
+await page.locator("(//input[@name='q'])[1]").fill('soaps');
+await page.keyboard.press('Enter');
+let result = await page.locator('._Omnvo').innerText();
+console.log(result);
+console.log(result.substring(18,24));
+});
+-------------------------------------------------------------------------------------------------
+Amazon Inner Text dropdown Values:
+
+import { expect, test } from '@playwright/test';
+test('Amazon Inner Text dropdown Values', async({page})=>{
+await page.goto('https://www.amazon.in/');
+let result = await page.locator('//div[@id="nav-search-dropdown-card"]').innerText();
+console.log(result);
+});
+-------------------------------------------------------------------------------------------------
+Amazon Dropdown Values:
+
+import { expect, test } from '@playwright/test';
+test('Amazon Dropdown Values', async ({ page }) => {
+await page.goto('https://www.amazon.in/')
+ await page.waitForTimeout(3000);
+const DDvalues = await page.locator("//select[@id='searchDropdownBox']/option")
+const DDcount = await DDvalues.count()
+ await page.waitForTimeout(3000);
+for(let i=0; i<DDcount; i++)
+{
+const textinDD = await DDvalues.nth(i) .innerText(); 
+const valuesinDD = await DDvalues .nth(i).getAttribute('value');
+console.log(`Option ${i}: value='${valuesinDD}', text='${textinDD}'`)
+}
+});
+-------------------------------------------------------------------------------------------------
+Macys Dropdown Values:
+
+import { expect, test } from '@playwright/test';
+test('Macys Dropdown Values', async ({ page }) => {
+await page.goto('https://www.macys.com/')
+await page.waitForTimeout(2000);
+await page.locator('#dd_button').click();
+const DDvalues = await page.locator("//div[@id='dd_options']/a");
+const DDcount = await DDvalues.count()
+for(let i=0; i<DDcount; i++)
+{
+ const textinDD = await DDvalues.nth(i) .innerText(); 
+ const valuesinDD = await DDvalues .nth(i).getAttribute('value');
+ console.log(`Option ${i}: value='${valuesinDD}', text='${textinDD}'`);
+}
+});
+-------------------------------------------------------------------------------------------------
+Macys Dropdown values Using Replace:
+
+import { expect, test } from '@playwright/test';
+test('Macys Dropdown values Using Replace', async ({ page }) => {
+await page.goto('https://www.macys.com/')
+await page.locator('#dd_button').click();
+const DDvalues = await page.locator("//div[@id='dd_options']/a");
+const DDcount = await DDvalues.count()
+for(let i=0; i<DDcount; i++)
+{
+ const textinDD = (await DDvalues.nth(i) .innerText()).replace('&','');; 
+ const valuesinDD = await DDvalues .nth(i).getAttribute('value');
+ console.log(`Option ${i}: value='${valuesinDD}', text='${textinDD}'`);
+}
+});
+-------------------------------------------------------------------------------------------------
+Myntra end to end:
+
+import { expect, test } from '@playwright/test';
+test('Myntra end to end', async ({ page }) => {
+await page.goto('https://www.myntra.com/');
+await page.locator(".desktop-searchBar").fill('watcher');
+await page.waitForTimeout(2000);
+await page.keyboard.press('Enter');
+let text: string = await page.locator(".title-container").innerText();
+let text1: string[] = text.split(' ');
+console.log(text1[2])
+let result: string = await page.locator(".pagination-paginationMeta").innerText();
+let result1: string[] = result.split(' ');
+console.log(result1[3])
+await page.waitForTimeout(2000);
+await page.locator(".pagination-next");
+for(let i=1;i<=4;i++)
+{
+await page.waitForTimeout(2000);
+await page.click(".pagination-next");
+}
+await page.locator('(//div[@class="product-productMetaInfo"])[2]').click();
+});
+-------------------------------------------------------------------------------------------------
+Saucedemo End to End:
+
+import { expect, test } from '@playwright/test';
+test('Saucedemo End to End', async ({ page }) => {
+  // Swag Labs Login page
+  await page.goto('https://www.saucedemo.com/');
+  await page.fill('#user-name', 'standard_user');
+  await page.fill('#password', 'secret_sauce');
+  await page.click('#login-button');
+ 
+  // Products page
+  expect(page.locator('.title')).toHaveText('Products');
+  await page.selectOption('//select[@class="product_sort_container"]', { value: 'lohi' });
+  await page.waitForTimeout(5000);
+  await page.click("//div[@class='inventory_list']/div[2]//button");
+  await page.waitForTimeout(10000);
+  await page.click("//div[@id='shopping_cart_container']");
+
+  //Checkout: Your Information page
+  expect(page.locator('.title')).toHaveText('Your Cart');
+  await page.click("//button[@id='checkout']");
+  expect(page.locator('.title')).toHaveText('Checkout: Your Information');
+  await page.fill('#first-name', 'Sandesh');
+  await page.fill('#last-name', 'G');
+  await page.fill('#postal-code', '07304');
+  await page.click("//input[@id='continue']");
+
+  //Overview  page
+  expect(page.locator('.title')).toHaveText('Checkout: Overview');
+  await page.click("//button[@id='finish']");
+  expect(page.locator('.title')).toHaveText('Checkout: Complete!');
+  await page.click("//button[@id='back-to-products']");
+ 
+});
+-------------------------------------------------------------------------------------------------
+Multiple Browsers-Contexts-Pages:
+
+import { expect, test } from '@playwright/test';
+test('Multiple Browsers-Contexts-Pages', async ({ browser }) => {
+// Context 1 (User 1)
+const context1 = await browser.newContext();
+const page1 = await context1.newPage();
+const page2 = await context1.newPage();
+// Context 2 (User 2)
+const context2 = await browser.newContext();
+const page3 = await context2.newPage();
+// Actions
+await page1.goto('https://amazon.com');
+await page2.goto('https://flipkart.com');
+await page3.goto('https://google.com');
+await browser.close();
+});
+-------------------------------------------------------------------------------------------------
+Amazon Using Functions:
+
+function amazonlaunch(thisURL:string,searchitem:string, filter= 'prices low to high'):number
+{
+let searchresults=0;
+test('Search Bat on Amazon', async ({ page }) => {
+await page.goto(thisURL);
+console.log('Amazon page launch succesfully')
+await page. fill('.usrname', searchitem)
+let searchresults = page.innerText;
+Number(searchresults)
+await page.selectOption('.filterxpath', filter)
+})
+return searchresults
+}
+amazonlaunch('https://www.amazon.in/', 'bat')
+-------------------------------------------------------------------------------------------------
+Download file to Local folder:
+
+import { expect, test } from '@playwright/test';
+test('Download file to Local folder', async ({ page }) => {
+  // Navigate to your page
+  await page.goto('https://demo.automationtesting.in/FileDownload.html');
+  // Start waiting for the download BEFORE clicking
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.click("//a[@class='btn btn-primary']"), // trigger download
+  ]);
+  // Define your existing folder path
+  const downloadPath = path.join(__dirname, 'downloads', await download.suggestedFilename());
+  // Save file to that folder
+  await download.saveAs(downloadPath);
+  console.log('File saved to:', downloadPath);
+});
+-------------------------------------------------------------------------------------------------
+Page Object Model ->> login Page:
+
+import { Page } from '@playwright/test';
+export class LoginPage {
+private page: Page;
+constructor( page: Page) {
+this.page = page;
+}
+async goto()
+{
+await this.page.goto('https://www.saucedemo.com/');
+}
+async login(username: string, password: string) {
+await this.page.fill('#user-name', username);
+await this.page.fill('#password', password);
+await this.page.click('#login-button');
+}
+}
+-------------------------------------------------------------------------------------------------
+Page Object Model ->> Product Page:
+
+import { Page, expect } from '@playwright/test';
+export class ProductsPage {
+constructor(private page: Page) {}
+async verifyPage()
+{
+await expect(this.page.locator('.title')).toHaveText('Products');
+}
+async sortLowToHigh()
+{
+await this.page.selectOption('.product_sort_container', { value: 'lohi' });
+}
+async addSecondProductToCart()
+{
+await this.page.click("//div[@class='inventory_list']/div[2]//button");
+}
+async goToCart()
+{
+await this.page.click('#shopping_cart_container');
+}
+}
+-------------------------------------------------------------------------------------------------
+Page Object Model ->> Checkout Page:
+
+import { Page, expect } from '@playwright/test';
+export class CheckoutPage {
+constructor(private page: Page) {}
+async startCheckout()
+{
+await expect(this.page.locator('.title')).toHaveText('Your Cart');
+await this.page.click('#checkout');
+}
+async fillDetails(first: string, last: string, zip: string)
+{
+await expect(this.page.locator('.title')).toHaveText('Checkout: Your Information');
+await this.page.fill('#first-name', first);
+await this.page.fill('#last-name', last);
+await this.page.fill('#postal-code', zip);
+await this.page.click('#continue');
+}
+async finishOrder()
+{
+await expect(this.page.locator('.title')).toHaveText('Checkout: Overview');
+await this.page.click('#finish');
+await expect(this.page.locator('.title')).toHaveText('Checkout: Complete!');
+await this.page.click('#back-to-products');
+}
+}
+-------------------------------------------------------------------------------------------------
+Page Object Model ->> Sauce Demo End to End:
+
+import { test } from '@playwright/test';
+import { LoginPage } from './pages/loginPage';
+import { ProductsPage } from './pages/ProductPage';
+import { CheckoutPage } from './pages/CheckoutPage';
+test('saucedemo - login with standard_user', async ({ page }) => {
+  
+const loginPage = new LoginPage(page);
+const productsPage = new ProductsPage(page);
+const checkoutPage = new CheckoutPage(page);
+
+await loginPage.goto();
+await loginPage.login('standard_user', 'secret_sauce');
+
+await productsPage.verifyPage();
+await productsPage.sortLowToHigh();
+await productsPage.addSecondProductToCart();
+await productsPage.goToCart();
+
+await checkoutPage.startCheckout();
+await checkoutPage.fillDetails('Sandesh', 'G', '07304');
+await checkoutPage.finishOrder();
+});
+-------------------------------------------------------------------------------------------------
