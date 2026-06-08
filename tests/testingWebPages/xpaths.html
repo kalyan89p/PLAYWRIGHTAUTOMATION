@@ -1,0 +1,259 @@
+<!-- xpath-practice.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>XPath Practice Page</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="mainHeader" class="top-header">
+    <h1 id="pageTitle">XPath Practice</h1>
+  </header>
+
+  <!-- LOGIN SECTION -->
+  <section id="loginSection">
+
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="input-field user-input"
+      placeholder="Enter Username"
+      value="Kalyan"
+    >
+
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="input-field pass-input"
+      placeholder="Enter Password"
+    >
+
+    <button
+      id="loginBtn"
+      class="btn primary-btn"
+      type="button">
+      Login
+    </button>
+
+    <button
+      id="cancelBtn"
+      class="btn secondary-btn"
+      type="button">
+      Cancel
+    </button>
+
+  </section>
+
+  <!-- LINKS -->
+  <section id="linkSection">
+
+    <a
+      id="googleLink"
+      href="https://www.google.com"
+      class="external-link">
+      Google
+    </a>
+
+    <a
+      id="youtubeLink"
+      href="https://www.youtube.com"
+      class="external-link media-link">
+      YouTube
+    </a>
+
+  </section>
+
+  <!-- IMAGE SECTION -->
+  <section id="imageSection">
+
+    <img
+      id="mainImage"
+      src="nature.jpg"
+      alt="Nature Image"
+      class="image-class"
+      width="200"
+    >
+
+  </section>
+
+  <!-- CHECKBOXES -->
+  <section id="checkboxSection">
+
+    <input
+      type="checkbox"
+      id="javaCheckbox"
+      name="language"
+      value="Java"
+    >
+    <label for="javaCheckbox">Java</label>
+
+    <input
+      type="checkbox"
+      id="pythonCheckbox"
+      name="language"
+      value="Python"
+    >
+    <label for="pythonCheckbox">Python</label>
+
+  </section>
+
+  <!-- RADIO BUTTONS -->
+  <section id="radioSection">
+
+    <input
+      type="radio"
+      id="maleRadio"
+      name="gender"
+      value="Male"
+    >
+    <label for="maleRadio">Male</label>
+
+    <input
+      type="radio"
+      id="femaleRadio"
+      name="gender"
+      value="Female"
+    >
+    <label for="femaleRadio">Female</label>
+
+  </section>
+
+  <!-- DROPDOWN -->
+  <section id="dropdownSection">
+
+    <select id="countryDropdown" name="country">
+
+      <option value="india">India</option>
+      <option value="usa">USA</option>
+      <option value="uk">UK</option>
+
+    </select>
+
+  </section>
+
+  <!-- TABLE -->
+  <section id="tableSection">
+
+    <table
+      id="employeeTable"
+      border="1">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>101</td>
+          <td>Kalyan</td>
+          <td>Tester</td>
+        </tr>
+
+        <tr>
+          <td>102</td>
+          <td>Ravi</td>
+          <td>Developer</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </section>
+
+  <!-- LIST -->
+  <section id="listSection">
+
+    <ul id="fruitList">
+
+      <li class="fruit">Apple</li>
+      <li class="fruit">Banana</li>
+      <li class="fruit special-fruit">Orange</li>
+
+    </ul>
+
+  </section>
+
+  <!-- NESTED DIVS -->
+  <section id="nestedSection">
+
+    <div id="outerDiv">
+
+      <div id="middleDiv">
+
+        <div id="innerDiv">
+          Inner Text
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FORM -->
+  <section id="formSection">
+
+    <form id="sampleForm">
+
+      <label for="emailInput">Email</label>
+
+      <input
+        type="email"
+        id="emailInput"
+        name="email"
+        placeholder="Enter Email"
+      >
+
+      <textarea
+        id="commentsBox"
+        name="comments"
+        rows="4"
+        cols="30">
+      </textarea>
+
+      <button
+        id="submitBtn"
+        type="submit">
+        Submit
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- HIDDEN ELEMENT -->
+  <div
+    id="hiddenDiv"
+    style="display:none;">
+    Hidden Text
+  </div>
+
+  <!-- CUSTOM ATTRIBUTE -->
+  <div
+    id="customDiv"
+    data-testid="customElement"
+    data-user="kalyan">
+    Custom Attribute Div
+  </div>
+
+  <!-- MULTIPLE CLASSES -->
+  <p
+    id="multiClassParagraph"
+    class="text red bold italic">
+    Multiple Class Paragraph
+  </p>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+cd newFolder // move to that newFolder
+npm init -y  // playwright // check for package.json
+npm init playwright@latest
+git init  // git integration starts here. /// creates a local GIT
+git remote add origin https://github.com/kalyan89p/PLAYWRIGHTAUTOMATION.git
+            // this command integrates with our local project to online git repo
+
+git add .
+git commit -m "comment" 
+git branch -m main
+git push -u origin main
