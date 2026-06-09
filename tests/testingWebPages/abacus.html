@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Real Soroban Logic</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:white;
+
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:950px;
+}
+
+/* ================= TOGGLE ================= */
+
+.toggle-area{
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+}
+
+.switch{
+
+    position:relative;
+
+    width:60px;
+    height:32px;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#ccc;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    transition:0.25s;
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+    height:24px;
+
+    left:4px;
+    top:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:0.25s;
+}
+
+input:checked + .slider{
+
+    background:#6b4423;
+}
+
+input:checked + .slider::before{
+
+    transform:translateX(28px);
+}
+
+.toggle-text{
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* ================= DISPLAY ================= */
+
+.display{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:repeat(4, 90px);
+
+    justify-content:space-around;
+
+    margin-bottom:25px;
+}
+
+.digit1,
+.digit2,
+.digit3,
+.digit4{
+
+    width:90px;
+    height:80px;
+
+    border:none;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:172px;
+    font-weight:bold;
+
+    background:transparent;
+
+    color:black;
+
+    letter-spacing:-6px;
+}
+
+.digit1{
+    margin-left:52%;
+}
+
+.digit2{
+    margin-left:18%;
+}
+
+.digit3{
+    margin-left:-18%;
+}
+
+.digit4{
+    margin-left:-52%;
+}
+
+/* ================= ABACUS ================= */
+
+.abacus{
+
+    position:relative;
+
+    height:520px;
+
+    border:12px solid #6b4423;
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:space-around;
+
+    padding:20px 50px;
+
+    box-sizing:border-box;
+}
+
+/* Divider */
+
+.divider{
+
+    position:absolute;
+
+    top:170px;
+
+    left:0;
+
+    width:100%;
+    height:14px;
+
+    background:#5b3417;
+
+    z-index:5;
+}
+
+/* Rod */
+
+.rod{
+
+    position:relative;
+
+    width:90px;
+    height:100%;
+}
+
+/* Rod line */
+
+.rod-line{
+
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    width:6px;
+    height:100%;
+
+    background:black;
+
+    z-index:1;
+}
+
+/* Ones indicator */
+
+.ones-dot{
+
+    position:absolute;
+
+    width:16px;
+    height:16px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:2px solid black;
+
+    top:147px;
+    left:36px;
+
+    z-index:20;
+}
+
+/* ================= BEADS ================= */
+
+.bead{
+
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    width:68px;
+    height:32px;
+
+    background:#8b5a2b;
+
+    border:3px solid #5a3618;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:top 0.18s ease;
+
+    clip-path: polygon(
+        18% 0%,
+        82% 0%,
+        100% 50%,
+        82% 100%,
+        18% 100%,
+        0% 50%
+    );
+
+    box-shadow:
+        inset 0 4px 4px rgba(255,255,255,0.25),
+        inset 0 -4px 4px rgba(0,0,0,0.25);
+}
+
+/* Groove */
+
+.bead::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:8px;
+    right:8px;
+
+    top:14px;
+
+    height:3px;
+
+    border-radius:4px;
+
+    background:rgba(0,0,0,0.25);
+}
+
+/* Labels */
+
+.label{
+
+    position:absolute;
+
+    bottom:-92px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    font-size:xxx-large;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- TOGGLE -->
+
+    <div class="toggle-area">
+
+        <label class="switch">
+
+            <input type="checkbox" id="toggleNumbers" checked>
+
+            <span class="slider"></span>
+
+        </label>
+
+        <span class="toggle-text">
+            
+        </span>
+
+    </div>
+
+    <!-- DISPLAY -->
+
+    <div class="display">
+
+        <div class="digit1" id="d0">0</div>
+        <div class="digit2" id="d1">0</div>
+        <div class="digit3" id="d2">0</div>
+        <div class="digit4" id="d3">0</div>
+
+    </div>
+
+    <!-- ABACUS -->
+
+    <div class="abacus" id="abacus">
+
+        <div class="divider"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ========================================= */
+/* CONFIG */
+/* ========================================= */
+
+const names = [
+    "TH",
+    "H",
+    "T",
+    "O"
+];
+
+/*
+6 SLOT MODEL
+
+slot 1 = nearest divider
+slot 6 = bottom
+*/
+
+const slotY = [
+    190,
+    225,
+    260,
+    295,
+    330,
+    365
+];
+
+/* Heaven bead */
+
+const heavenUp = 35;
+const heavenDown = 105;
+
+/* ========================================= */
+
+const abacus = document.getElementById("abacus");
+
+const rods = [];
+
+/* ========================================= */
+/* CREATE RODS */
+/* ========================================= */
+
+for(let r=0; r<4; r++){
+
+    const rod = document.createElement("div");
+    rod.className = "rod";
+
+    /* rod line */
+
+    const line = document.createElement("div");
+    line.className = "rod-line";
+
+    rod.appendChild(line);
+
+    /* ones dot */
+
+    if(r === 3){
+
+        const dot = document.createElement("div");
+        dot.className = "ones-dot";
+
+        rod.appendChild(dot);
+    }
+
+    /* heaven bead */
+
+    const heaven = document.createElement("div");
+    heaven.className = "bead";
+
+    heaven.style.top = heavenUp + "px";
+
+    rod.appendChild(heaven);
+
+    /* earth beads */
+
+    const earth = [];
+
+    for(let i=0; i<4; i++){
+
+        const bead = document.createElement("div");
+        bead.className = "bead";
+
+        rod.appendChild(bead);
+
+        earth.push(bead);
+    }
+
+    /* label */
+
+    const label = document.createElement("div");
+    label.className = "label";
+
+    label.innerText = names[r];
+
+    rod.appendChild(label);
+
+    abacus.appendChild(rod);
+
+    /* ========================================= */
+    /* STATE */
+    /* ========================================= */
+
+    const state = {
+
+        heaven:false,
+
+        count:0,
+
+        heavenBead:heaven,
+
+        earthBeads:earth
+    };
+
+    rods.push(state);
+
+    /* ========================================= */
+    /* HEAVEN CLICK */
+    /* ========================================= */
+
+    heaven.addEventListener("click", () => {
+
+        state.heaven = !state.heaven;
+
+        renderRod(r);
+
+        updateDisplay();
+    });
+
+    /* ========================================= */
+    /* EARTH CLICK */
+    /* ========================================= */
+
+    earth.forEach((bead, index) => {
+
+        bead.addEventListener("click", () => {
+
+            const clickedLevel = index + 1;
+
+            if(clickedLevel > state.count){
+
+                state.count = clickedLevel;
+
+            }else{
+
+                state.count = clickedLevel - 1;
+            }
+
+            renderRod(r);
+
+            updateDisplay();
+
+        });
+
+    });
+
+    renderRod(r);
+}
+
+/* ========================================= */
+/* RENDER */
+/* ========================================= */
+
+function renderRod(r){
+
+    const state = rods[r];
+
+    /* Heaven */
+
+    if(state.heaven){
+
+        state.heavenBead.style.top =
+            heavenDown + "px";
+
+    }else{
+
+        state.heavenBead.style.top =
+            heavenUp + "px";
+    }
+
+    /*
+    EARTH BEADS
+
+    Resting:
+    slots 3 4 5 6
+
+    Active:
+    slots 1 2 3 4
+    */
+
+    for(let i=0; i<4; i++){
+
+        const bead = state.earthBeads[i];
+
+        if(i < state.count){
+
+            bead.style.top =
+                slotY[i] + "px";
+
+        }else{
+
+            bead.style.top =
+                slotY[i + 2] + "px";
+        }
+    }
+}
+
+/* ========================================= */
+/* DISPLAY */
+/* ========================================= */
+
+function updateDisplay(){
+
+    rods.forEach((state, i) => {
+
+        let value = state.count;
+
+        if(state.heaven){
+            value += 5;
+        }
+
+        document.getElementById(
+            "d" + i
+        ).innerText = value;
+    });
+}
+
+/* ========================================= */
+/* TOGGLE */
+/* ========================================= */
+
+const toggle =
+    document.getElementById("toggleNumbers");
+
+toggle.addEventListener("change", () => {
+
+    const display =
+        document.querySelector(".display");
+
+    if(toggle.checked){
+
+        display.style.visibility = "visible";
+
+    }else{
+
+        display.style.visibility = "hidden";
+    }
+
+});
+
+</script>
+
+</body>
+</html>
