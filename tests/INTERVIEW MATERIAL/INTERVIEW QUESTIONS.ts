@@ -224,3 +224,19 @@ Solution:
 Used auto-waiting locators
 Added retry logic
 Replaced XPath with role-based selectors
+
+how do we maximise the window in playwright? 
+To maximize the window in Playwright, you can set the viewport size to the maximum available screen size. Here's how you can do it:
+```typescript
+import { chromium } from 'playwright';  
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext({
+    viewport: null // This will maximize the window
+  }); 
+  const page = await context.newPage();
+  await page.goto('https://example.com');     
+  // Your test code here  
+  await browser.close();
+})(); 
+```In this code, setting `viewport: null` in the `newContext` method will allow the browser window to open in its maximum size. Make sure to run the browser in headed mode (not headless) to see the effect.

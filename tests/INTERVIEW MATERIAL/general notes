@@ -1,0 +1,117 @@
+//data types supported by javascript and typescript
+1. Primitive types:
+- string
+- number
+- boolean
+- null
+- undefined
+- symbol
+- bigint    
+2. Object types:
+- Object
+- Array
+- Function
+- Date
+- RegExp
+- Map
+- Set
+- WeakMap
+- WeakSet
+3. Special types:
+- any
+- unknown
+- never
+- void  
+- enum
+- tuple
+- interface
+- type alias    
+4. Utility types (TypeScript):
+- Partial<T>
+- Readonly<T>   
+- Record<K, T>
+- Pick<T, K>
+- Omit<T, K>    
+- Exclude<T, U>
+- Extract<T, U>
+- NonNullable<T>
+- ReturnType<T>
+- Parameters<T>
+- ConstructorParameters<T>
+- InstanceType<T>       
+- This is not an exhaustive list, but it covers the most commonly used data types in JavaScript and TypeScript.
+
+difference between var, let and const in javascript
+1. var:
+- Function-scoped
+- Can be redeclared and updated
+- Hoisted to the top of its scope (initialized with undefined)
+- Not recommended for use in modern JavaScript due to potential for bugs and confusion
+2. let:
+- Block-scoped
+- Can be updated but not redeclared within the same scope
+- Hoisted to the top of its block but not initialized (temporal dead zone)
+- Recommended for variables that will be reassigned 
+3. const:
+- Block-scoped
+- Cannot be updated or redeclared
+- Hoisted to the top of its block but not initialized (temporal dead zone)
+- Recommended for variables that should not be reassigned (constants)   
+- In summary:
+- Use var for legacy code or when function-scoping is desired (not recommended)
+- Use let for variables that will be reassigned
+- Use const for variables that should not be reassigned 
+
+
+what are fixtures in testing?
+Fixtures in testing refer to the setup and teardown processes that are used to prepare the test environment before tests are run and to clean up afterward. They help ensure that tests run in a consistent and controlled environment, which can improve test reliability and maintainability.
+In Playwright, fixtures are used to manage resources such as browser instances, pages, and test data.   They can be defined using the `test` object and can be shared across multiple tests. For example:
+```typescript
+    import { test } from '@playwright/test';    
+    // Define a fixture for a browser context
+    test.describe('My Test Suite', () => {
+      let context;  
+        test.beforeAll(async () => {
+        context = await browser.newContext();
+        });
+        test.afterAll(async () => {
+        await context.close();
+        }   }); 
+In this example , a browser context is created before all tests in the suite and closed afterward. This allows all tests to share the same context, which can improve performance and reduce resource usage. Fixtures can also be used to set up test data, mock APIs, or perform any other necessary setup and teardown tasks for your tests.
+        how do we create custom fixtures in Playwright?
+To create custom fixtures in Playwright, you can use the `test` object to define a fixture function that sets up the necessary resources for your tests. Here's an example of how to create a custom fixture for a user login session:      
+```typescript import { test } from '@playwright/test';
+// Define a custom fixture for user login
+test.describe('My Test Suite', () => {
+  let userSession;
+    test.beforeAll(async () => {
+    // Simulate user login and create a session
+    userSession = await loginUser('username', 'password');
+    }   );      
+    test.afterAll(async () => {
+    // Clean up user session
+    await logoutUser(userSession);
+    });
+    test('Test case 1', async () => {
+    // Use the userSession fixture in your test
+    await page.goto('https://example.com/dashboard');
+    // Perform assertions or interactions using the userSession
+    });
+    test('Test case 2', async () => {
+    // Use the userSession fixture in another test
+    await page.goto('https://example.com/profile');
+    // Perform assertions or interactions using the userSession
+    });
+});     
+difference between browser, context and page in Playwright
+In Playwright, the concepts of browser, context, and page are fundamental to understanding how to manage and interact with web applications during testing. Here's a breakdown of each:
+1. Browser:
+- The browser is the actual instance of the web browser (e.g., Chromium, Firefox, WebKit) that Playwright controls. It is responsible for launching and managing the browser process. You can have multiple browser instances running simultaneously, each with its own set of contexts and pages.  
+2. Context:
+- A context is an isolated environment within a browser instance. It allows you to create multiple independent sessions within the same browser. Each context can have its own cookies, local storage, and cache, which means that actions performed in one context do not affect others. This is useful for testing scenarios that require different user sessions or configurations.  
+3. Page:
+- A page represents a single tab or window within a browser context. It is where you interact with the web application, perform actions, and make assertions. You can have multiple pages within a single context, and each page can navigate to different URLs and perform different actions.
+In summary:
+- Browser: The overall browser instance that manages multiple contexts and pages.
+- Context: An isolated environment within a browser that allows for independent sessions.
+- Page: A single tab or window within a context where you interact with the web application.    
