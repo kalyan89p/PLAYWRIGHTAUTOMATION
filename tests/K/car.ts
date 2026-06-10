@@ -1,9 +1,14 @@
-class car{
+import audiosystem from "./audiosystem";
+class car extends audiosystem{
     name: string;
     length: number;
     width: number; 
     height: number;
-    constructor(name: string, length: number, width: number, height: number){
+    
+
+
+    constructor(name: string, length: number, width: number, height: number,speaker: string,size: number ){
+        super(speaker,size);
         this.name=name; 
         this.length = length; 
         this.width = width; 
@@ -14,10 +19,13 @@ class car{
     }  
 }
 
+class vehicle extends car {
+    
+}
+
 //const benz = new car();
 //const hyundai = new car();
-const venue = new car("Venue",20,40,60);
-const ertiga = new car("Ertiga", 10,40,60);
-console.log(venue.name);
-console.log(ertiga.length+","+venue.length);
-console.log(ertiga.bootspace());
+const venue = new car("Venue",20,40,60,"JBL",20);
+const ertiga = new car("Ertiga",10,40,60,"BOAT",16);
+console.log(venue.spname+","+venue.inches);
+console.log(ertiga.spname+","+ertiga.inches);

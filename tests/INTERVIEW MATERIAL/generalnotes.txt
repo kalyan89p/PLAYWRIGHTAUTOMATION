@@ -114,3 +114,18 @@ In summary:
 - Browser: The overall browser instance that manages multiple contexts and pages.
 - Context: An isolated environment within a browser that allows for independent sessions.
 - Page: A single tab or window within a context where you interact with the web application.    
+
+
+OOPS CONCEPTS: 
+  ENCAPSULATION 
+  POLYMORPHISM
+  INHERITANCE
+  ABSTRACTION
+
+ACCESS MODIFIERS = PUBLIC, PRIVATE, PROTECTED, DEFAULT
+
+AUDIOSYSTEM
+   ||
+  CAR
+  ||
+  VEHICLE 
