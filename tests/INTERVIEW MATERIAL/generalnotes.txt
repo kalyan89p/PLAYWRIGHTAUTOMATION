@@ -62,7 +62,6 @@ difference between var, let and const in javascript
 - Use let for variables that will be reassigned
 - Use const for variables that should not be reassigned 
 
-
 what are fixtures in testing?
 Fixtures in testing refer to the setup and teardown processes that are used to prepare the test environment before tests are run and to clean up afterward. They help ensure that tests run in a consistent and controlled environment, which can improve test reliability and maintainability.
 In Playwright, fixtures are used to manage resources such as browser instances, pages, and test data.   They can be defined using the `test` object and can be shared across multiple tests. For example:

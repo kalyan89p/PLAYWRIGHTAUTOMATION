@@ -3,8 +3,6 @@ class car{
     length: number;
     width: number; 
     height: number;
-
-    
     constructor(name: string, length: number, width: number, height: number){
         this.name=name; 
         this.length = length; 
