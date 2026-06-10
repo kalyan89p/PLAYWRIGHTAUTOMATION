@@ -1,7 +1,7 @@
 {
   "name": "playwrightautomation",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"# PLAYWRIGHTAUTOMATION\"",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
@@ -11,5 +11,16 @@
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.2"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalyan89p/PLAYWRIGHTAUTOMATION.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kalyan89p/PLAYWRIGHTAUTOMATION/issues"
+  },
+  "homepage": "https://github.com/kalyan89p/PLAYWRIGHTAUTOMATION#readme"
 }
