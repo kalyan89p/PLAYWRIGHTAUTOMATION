@@ -1,5 +1,4 @@
-
-class audiosystem{
+abstract class audiosystem{
     spname: string;
     inches: number;
         constructor(a:string,b:number){

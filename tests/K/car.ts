@@ -4,7 +4,7 @@ class car extends audiosystem{
     length: number;
    private width: number; 
     height: number;
-    
+
 
 
     constructor(name: string, length: number, width: number, height: number,speaker: string,size: number ){
