@@ -811,3 +811,90 @@ await checkoutPage.fillDetails('Sandesh', 'G', '07304');
 await checkoutPage.finishOrder();
 });
 -------------------------------------------------------------------------------------------------
+
+
+
+1. Reverse String 
+functionreverseString(str: string): string {
+letreversed='';
+for (leti=str.length -1; i>=0; i--) {
+reversed+=str[i];
+    }
+returnreversed;
+}
+console.log(reverseString("playwright"));
+ 
+ 
+2. Count Character Occurrences
+functioncountOccurrences(str: string) {
+constresult: { [key: string]: number } = {};
+for (letcharofstr) {
+if (result[char]) {
+result[char]++;
+        } else {
+result[char] =1;
+        }
+    }
+returnresult;
+}
+console.log(countOccurrences("playwright"));
+
+
+
+3. Find Duplicate Characters
+function findDuplicates(str: string) {
+    const count: any = {};
+
+
+    for (let ch of str) {
+        count[ch] = (count[ch] || 0) + 1;
+    }
+
+
+    for (let key in count) {
+        if (count[key] > 1) {
+            console.log(key);
+        }
+    }
+}
+
+
+findDuplicates("programming");
+
+
+4. Remove Duplicate Characters
+//programming
+function removeDuplicates(str: string): string {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        let exists = false;
+        for (let j = 0; j < result.length; j++) {
+            if (str[i] === result[j]) {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) {
+            result += str[i];
+        }
+    }
+    return result;
+}
+console.log(removeDuplicates("programming"));
+
+
+
+5. Remove a Specific Character
+//playwright …..Remove: a
+function removeCharacter(str: string, charToRemove: string): string {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== charToRemove) {
+            result += str[i];
+        }
+    }
+    return result;
+}
+console.log(removeCharacter("playwright", "a"));
+
+

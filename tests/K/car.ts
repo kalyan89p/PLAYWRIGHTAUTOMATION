@@ -2,7 +2,7 @@ import audiosystem from "./audiosystem";
 class car extends audiosystem{
     name: string;
     length: number;
-    width: number; 
+   private width: number; 
     height: number;
     
 
@@ -17,10 +17,6 @@ class car extends audiosystem{
   bootspace(){
       return  this.length * this.width * this.height;
     }  
-}
-
-class vehicle extends car {
-    
 }
 
 //const benz = new car();
