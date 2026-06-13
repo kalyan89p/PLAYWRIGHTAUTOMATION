@@ -11,7 +11,7 @@ git branch -m main
 git push -u origin main
 
 
-// CLOING command
+// CLONING command
 RUN GIT https://github.com/kalyan89p/PLAYWRIGHTAUTOMATION.git   ///go to the url
 first: git clone https://github.com/kalyan89p/PLAYWRIGHTAUTOMATION.git
 then: git init

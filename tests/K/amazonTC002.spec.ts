@@ -15,7 +15,7 @@ let bhotaddam = "//input[@type='submit']";
 let rateXpath = "//div[@data-cy='price-recipe']/div/div/a/span/span/span[@class='a-price-whole']";
 let rateCount = 0;
 let rate; 
-test('Amazon TC002', async ({ page }) => {
+test('Amazon TC002','@smoke' async ({ page }) => {
     await page.goto(url);
     await page.locator(searchbox).fill(searchText);
     await page.locator(bhotaddam).click();
@@ -29,3 +29,6 @@ test('Amazon TC002', async ({ page }) => {
         console.log(i+1+"soap rate"+rate[i]);
     }
 });
+
+//TEST CASE 2 = print "WE HAVE 48 PAGES" in console output.
+//test case 3 = print top brand names in console output.
