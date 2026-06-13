@@ -240,3 +240,203 @@ import { chromium } from 'playwright';
   await browser.close();
 })(); 
 ```In this code, setting `viewport: null` in the `newContext` method will allow the browser window to open in its maximum size. Make sure to run the browser in headed mode (not headless) to see the effect.
+
+
+Git
+
+Explain Git working areas/stages
+localWorking Directory  (git add .  / git add -A Will take you to Staging )
+Staging “Index”)  (git commit -m message with take you to local)
+Local Git Repository ( git push will take you to Remote)
+Remote Git repository (Cloud)
+How Pull, Fetch, Merge, Clone Worlds
+Git fetch =>. Remote Repo to Local Repo
+Git Merge => Local Repo to Working directory
+Git Pull = > fetch+ Merge ( Remote to WD)
+Git clone => Remote Repo to Local Repo
+Git Checkout => Local Repo to Working directory  
+GIT pull vs GIT Fetch
+Git fetches :: download the changes without merging
+Test engineers often use fetch to review changes before integrating them.
+Git pull = fetch+merge automatically
+
+When should you use git fetch instead of git pull?
+When you want to review changes first before merging.
+Safer in team environments.
+git fetch
+git status
+
+What does git push do?
+Uploads your local commits to a remote repository.
+>> git push origin main
+What happens if you run git push without pulling first?
+If the remote branch has new commits, Git will reject the push.
+You must first git pull (or git fetch + merge/rebase).
+What is a merge in Git?
+Combines changes from one branch into another.
+Difference between git merge and git rebase?
+Git merge keeps full history of commits , git rebase rewrites History
+Git merge creates  new commit , git rebase “no merge common”
+
+
+
+Which is safer — merge or rebase? Merge is safer for shared branches, rebase is cleaner for local work.
+API testing with Private apis (bear token, oauth )
+Session Storage more example ... with API generating new Password if expires 
+
+//INTERVIEW FORMAT
+Intro... 
+folder structure 
+PW questions 
+TS/JS questions 
+TS/JS Progrsm
+Git  
+CI/CD
+
+
+diff between locator and page.locator
+ 
+How to locate xpath in orange domain
+ 
+framework structure
+ 
+frames
+ 
+how to switch to windows
+ 
+diff between sanity and smoke
+ 
+How to handle alerts
+ 
+JD 
+API testing .... {50% PW, 50% API }
+pw (90% PW, 10%) 
+ 
+Write Test cases in PlayWright 
+push the code in to GIT 
+take GIT branch create Pipeline 
+ 
+...installl the dependences 
+ 
+npm install 
+npm playwirtte Everyone
+ 
+npm playwrite test ...
+Sharding is used to split a large test suite into smaller chunks and run them on multiple machines/agents in parallel.
+
+
+
+Explain Git working areas/stages
+localWorking Directory  (git add .  / git add -A Will take you to Staging )
+Staging “Index”)  (git commit -m message with take you to local)
+Local Git Repository ( git push will take you to Remote)
+Remote Git repository (Cloud)
+How Pull, Fetch, Merge, Clone Worlds
+Git fetch =>. Remote Repo to Local Repo
+Git Merge => Local Repo to Working directory
+Git Pull = > fetch+ Merge ( Remote to WD)
+Git clone => Remote Repo to Local Repo
+Git Checkout => Local Repo to Working directory  
+GIT pull vs GIT Fetch
+Git fetches :: download the changes without merging
+Test engineers often use fetch to review changes before integrating them.
+Git pull = fetch+merge automatically
+
+When should you use git fetch instead of git pull?
+When you want to review changes first before merging.
+Safer in team environments.
+git fetch
+git status
+
+What does git push do?
+Uploads your local commits to a remote repository.
+>> git push origin main
+What happens if you run git push without pulling first?
+If the remote branch has new commits, Git will reject the push.
+You must first git pull (or git fetch + merge/rebase).
+What is a merge in Git?
+Combines changes from one branch into another.
+Difference between git merge and git rebase?
+Git merge keeps full history of commits , git rebase rewrites History
+Git merge creates  new commit , git rebase “no merge common”
+Which is safer — merge or rebase? Merge is safer for shared branches, rebase is cleaner for local work.
+
+i have attened an interview today below are the questions 
+1.tls /certifactes in api testing using playwright?
+2.API validations
+2.file upload and download and how you will validate different type of files like excel, pdf, word,jepg, password protected file
+3.differences b/t selenium and playwright
+4.what is test runner examples
+5.have you used any agents with git hub copoilt?
+6.how do you work with secure aPIs
+7.how do you do session storage what are the next steps
+8.what is the difference between package.json and package -lock.son?
+9.how do you run the test at a time with different enviroments like qa,uat,stg
+10.how do you the tests using pipeline
+11. have you ever used --shard?
+12. what are the fixtures and what is the usage
+Hooks and arrow functions??
+
+//Maximize window
+import { test } from '@playwright/test';
+ 
+test('Launch Amazon in maximized window', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: null
+  });
+  const page = await context.newPage();
+  await page.goto('https://www.amazon.in');
+  await page.waitForTimeout(5000);
+});
+ 
+launchOptions: {
+      args: ['--start-maximized']
+    }
+
+    pipeline {
+
+    agent any
+ 
+    stages {
+ 
+        stage('Install Dependencies') {
+
+            steps {
+
+                bat 'npm install'
+
+            }
+
+        }
+ 
+        stage('Install Playwright Browsers') {
+
+            steps {
+
+                bat 'npx playwright install'
+
+            }
+
+        }
+ 
+        stage('Run Playwright Tests') {
+
+            steps {
+
+                bat 'npx playwright test'
+
+            }
+
+        }
+
+    }
+
+}
+ 
+ 
+getByRole()
+getByLabel()
+getByPlaceholder()
+getByText()
+getByTestId()
+

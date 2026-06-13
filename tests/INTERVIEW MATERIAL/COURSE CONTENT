@@ -1,9 +1,9 @@
 Table of Contents  
 
-1. Section 1: Introduction to Playwright  
-2. Section 2: TypeScript  
-3. Section 3: Playwright Core Concepts  
-4. Section 4: Playwright Advanced Features  
+1. Section 1: Introduction to Playwright  -
+2. Section 2: TypeScript  -
+3. Section 3: Playwright Core Concepts  -
+4. Section 4: Playwright Advanced Features  -
 5. Section 5: Page Object Model 6. Section  
 6: Test Runner / Reporter  
 7. Section 7: API Testing Fundamentals  
@@ -12,12 +12,12 @@ Table of Contents
 
 
 SECTION 1: Introduction to Playwright 
-• What is Playwright 
-• Why Playwright vs Selenium 
-• Supported languages (JS/TS, Java, Python, .NET) 
-• Architecture of Playwright 
+• What is Playwright -
+• Why Playwright vs Selenium -
+• Supported languages (JS/TS, Java, Python, .NET) -
+• Architecture of Playwright -
 • Setting up Playwright on Windows & Mac 
-• Running your first test     
+• Running your first test     -
 • Selectors/Locators 
 •  Different ways to locate a DOM element (by title, by label, by role etc) 
 • Synchronization/Auto waiting  
@@ -25,12 +25,12 @@ SECTION 1: Introduction to Playwright
 
 
 SECTION 2: TypeScript  
-• What is TypeScript? 
-• TS vs JavaScript 
-• Variables, String, Object 
-• Data type, Let, var, Const 
-• Operator 
-• Conditional statement 
+• What is TypeScript? -
+• TS vs JavaScript -
+• Variables, String, Object -
+• Data type, Let, var, Const -
+• Operator -
+• Conditional statement -
 • Loops 
 • Function 
 • Arrow function 
@@ -70,6 +70,8 @@ SECTION 4: Playwright Advanced Features
 • Network mocking & request interception 
 • API + UI hybrid tests 
 • Visual testing 
+
+
 SECTION 5: Page Object Model (POM) 
 • Why POM 
 • TS classes for pages 

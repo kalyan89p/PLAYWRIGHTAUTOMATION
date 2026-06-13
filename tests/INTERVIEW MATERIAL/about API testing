@@ -1,0 +1,87 @@
+Why do API Testing?
+Faster execution
+Earlier defect detection
+Independent of UI
+Better coverage of business logic
+
+For a manual tester transitioning to Playwright, the next topics to learn after these basics are:
+
+Authentication (Bearer tokens, OAuth, JWT)
+Query parameters and path parameters
+Request/response validation
+API chaining (using data from one API in another)
+Playwright's APIRequestContext
+Mocking API responses in Playwright
+
+These six topics cover most API questions asked in automation testing interviews.
+
+What is REST API?
+
+An API that uses HTTP methods (GET, POST, PUT, DELETE) to perform operations on resources.
+
+Difference between PUT and PATCH?
+PUT → Updates the entire resource.
+PATCH → Updates only specified fields.
+Difference between 401 and 403?
+401 → Not authenticated.
+403 → Authenticated but not authorized.
+Difference between API Testing and UI Testing?
+
+API Testing         	UI Testing
+Faster	                Slower
+No browser needed	    Browser required
+Tests backend logic	    Tests end-to-end flow
+More stable	            More prone to UI changes
+
+
+import { test, expect } from '@playwright/test';
+
+test('Get User', async ({ request }) => {
+
+    const response = await request.get(
+        'https://reqres.in/api/users/2'
+    );
+
+    expect(response.status()).toBe(200);
+
+    const body = await response.json();
+
+    expect(body.data.id).toBe(2);
+});
+
+
+//command to install local api server
+npm install -g json-server
+json-server --watch db.json --port 3000
+
+http://localhost:3000/users/
+[
+	{
+		"id": "1",
+		"name": "Kalyan"
+	},
+	{
+		"name": "Apple air dopes 101 headset3",
+		"data": {
+			"year": 2018,
+			"price": 99.99,
+			"CPU model": "chillar",
+			"Hard disk size": "assam",
+			"color": "gulal"
+		},
+		"id": "XuUYj5XpVjU"
+	},
+	{
+		"name": "Apple air dopes 101",
+		"data": {
+			"year": 2018,
+			"price": 99.99,
+			"CPU model": "chillar",
+			"Hard disk size": "assam",
+			"color": "gulal"
+		},
+		"id": "F-t-ByQHYHQ"
+	}
+]
+
+https://restful-api.dev/
