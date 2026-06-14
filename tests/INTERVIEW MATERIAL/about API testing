@@ -85,3 +85,29 @@ http://localhost:3000/users/
 ]
 
 https://restful-api.dev/
+
+
+THIS IS A SAMPLE POST SCRIPT: 
+
+console.log(ids);
+for(const id of ids){
+const url="http://localhost:3000/users/"+id;	
+	const response = await insomnia.sendRequest({
+  url: url,
+  method: 'DELETE',
+  header: {
+    'Content-Type': 'application/json'
+  },
+  body: {
+    mimeType: 'application/json',
+	
+}
+	});
+}
+
+// SAMPLE PRE SCRIPT
+
+const Multiborrower=insomnia.environment.get("Multiborrower");
+if(Multiborrower=="Yes"){
+insomnia.request.skip();
+}

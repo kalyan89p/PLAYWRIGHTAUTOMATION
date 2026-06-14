@@ -9,7 +9,7 @@ test('Amazon TC001', async ({ page }) => {
   await page.goto(url);
   await page.locator(astb).fill('Soap');//hard coded, need to avoid. 
   await page.locator(btdm).click();
-  await page.locator(soapRates).first().waitFor({ timeout: 5000 });
+  await page.locator(soapRates).last().waitFor({ timeout: 5000 });
   let prices: number = await page.locator(soapRates).count();
   console.log(prices);
   // Add your test steps here

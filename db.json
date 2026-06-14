@@ -1,10 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Kalyan"
-    },
-    {
       "name": "Shanmukha",
       "data": {
         "year": 2026,
@@ -13,18 +9,18 @@
         "Hard disk size": "23TB",
         "color": "Jumanji"
       },
-      "id": "vH-I8A6yTi0"
+      "id": "dcMrjUZD_GM"
     },
     {
-      "name": "Rajesh",
+      "name": "Macharla",
       "data": {
-        "year": 2025,
-        "price": 2.99,
-        "CPU model": "Borrower",
-        "Hard disk size": "1TB",
-        "color": "Pench"
+        "year": 2026,
+        "price": 1.99,
+        "CPU model": "Portal",
+        "Hard disk size": "23TB",
+        "color": "Jumanji"
       },
-      "id": "ARS0yqkHiUM"
+      "id": "MR3EzRG0lvo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
