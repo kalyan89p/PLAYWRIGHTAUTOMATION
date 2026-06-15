@@ -1,4 +1,16 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "Macharla",
+      "data": {
+        "year": 2026,
+        "price": 1.99,
+        "CPU model": "Portal",
+        "Hard disk size": "23TB",
+        "color": "Jumanji"
+      },
+      "id": "bPxol1rG0Ac"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
