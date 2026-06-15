@@ -1,27 +1,4 @@
 {
-  "users": [
-    {
-      "name": "Shanmukha",
-      "data": {
-        "year": 2026,
-        "price": 1.99,
-        "CPU model": "Portal",
-        "Hard disk size": "23TB",
-        "color": "Jumanji"
-      },
-      "id": "dcMrjUZD_GM"
-    },
-    {
-      "name": "Macharla",
-      "data": {
-        "year": 2026,
-        "price": 1.99,
-        "CPU model": "Portal",
-        "Hard disk size": "23TB",
-        "color": "Jumanji"
-      },
-      "id": "MR3EzRG0lvo"
-    }
-  ],
+  "users": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
