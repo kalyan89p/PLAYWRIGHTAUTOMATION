@@ -11,9 +11,14 @@
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.2"
+
   },
   "directories": {
     "test": "tests"
+  },
+    "dependencies": {
+    "exceljs": "^4.4.0",
+    "save": "^2.9.0"
   },
   "repository": {
     "type": "git",
