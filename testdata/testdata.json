@@ -1,0 +1,40 @@
+ {
+
+  "user": [
+ { "name1": "Rajesh",
+   "Email": "rajrajesh5252@gmail.com",
+   "Phone": "9700989898",
+   "Address": "4602 Mallard Drive Melbourne Brevard FL 32932",
+   "Field1" : "Hi World",
+   "Field2" : "Hey You!"
+ },
+ { "name1": "Shanmukha",
+   "Email": "barikishanmukha@gmail.com",
+   "Phone": "3216549870",
+   "Address": "4603 Mallard Drive Melbourne Brevard FL 32934",
+   "Field1" : "Hi Bro",
+   "Field2" : "What Doing?"
+ },
+ { "name1": "Kalyan",
+   "Email": "kalyan@gmail.com",
+   "Phone": "9700989898",
+   "Address": "4604 Mallard Drive Melbourne Brevard FL 32934",
+   "Field1" : "Yes",
+   "Field2" : "NO?"
+ },
+ { "name1": "Rajeev",
+   "Email": "KoyaRajeev@gmail.com",
+   "Phone": "9966222242",
+   "Address": "4601 Mallard Drive Melbourne Brevard FL 32934",
+   "Field1" : "Whatsup",
+   "Field2" : "Alright!"
+ },
+ { "name1": "Macharla",
+   "Email": "macharlasanthosh@gmail.com",
+   "Phone": "9246183528",
+   "Address": "4602 Mallard Drive Melbourne Brevard FL 32934",
+   "Field1" : "iPhone",
+   "Field2" : "RangaMarthanda!"
+ }]
+
+ }

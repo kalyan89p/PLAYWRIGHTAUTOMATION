@@ -1,39 +1,37 @@
 import { Page, Locator } from '@playwright/test';
-export class tap{
-   url: string = "https://testautomationpractice.blogspot.com/"
-   name: string ="//*[@id='name']"
-   email: string ="//*[@id='email']"
-   phone: string = "//*[@id='phone']"
-   address: string = "//*[@id='textarea']"
-   male: string = "//*[@id='male']"
-   sunday: string = "//input[@value='sunday']"
-   monday: string = "//input[@value='monday']"
-   tuesday: string = "//input[@value='tuesday']"
-   wednesday: string = "//input[@value='wednesday']"
-   thursday: string = "//input[@value='thursday']"
-   friday: string = "//input[@value='friday']"
-   saturday: string = "//input[@value='saturday']"
-//   await page.locator('//select[@name="fruits"]').selectOption('banana');
-   countrydd: string = "//select[@id='country']"
-   colorsdd: string = "//select[@id='colors']"
-   animalsdd: string = "//select[@id='animals']"
-
-    page: Page | undefined;
-    namebox: Locator | undefined;
-
-
+import {allxpaths} from '../K/allxpaths'
+export class tap extends allxpaths {
+    page: Page;
+    namebox: Locator;
+    emailbox: Locator;
+    phonebox: Locator;
+    field1Box: Locator;
+    field2Box: Locator;
+    sundayCheckBox : Locator;
+    addressBox: Locator;
+   
     constructor(page: Page) {
-    this.page = page; 
-    this.namebox = page.locator(this.name)
+        super();
+        this.page = page; 
+        this.namebox = page.locator(this.namef);
+        this.emailbox = page.locator(this.email);
+        this.phonebox = page.locator(this.phone);
+        this.field1Box = page.locator(this.field1);
+        this.field2Box = page.locator(this.field2);
+        this.sundayCheckBox = page.locator(this.sunday);
+        this.addressBox = page.locator(this.address);
     }
 
 
     async goto(url:string){
         await this.page?.goto(url);
     }
-    async fill(name: string){
-        await this.namebox?.fill(name);
+    async fill(text: string,element: Locator ){
+        await element.fill(text);
     }
-
+    async click(element: Locator){
+        
+        await element.click();
+    }
     
 }
